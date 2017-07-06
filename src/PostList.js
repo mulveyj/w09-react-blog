@@ -28,7 +28,7 @@ class PostList extends React.Component {
 }
 
 PostList.propTypes = {
-    posts: PropTypes.object.isRequired
+    posts: PropTypes.array.isRequired
 };
 
 export default PostList;

@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const PostRow = (props) => {
+    const authorUrl = parseAuthor(props.post.author);
     return (
         <tr>
             <th><Link to={'/posts/' + props.post.id}>Post</Link></th>
             <td>{props.post.createdAt}</td>
-            <td>{props.post.author}</td>
+            <td><Link to={'/authors/' + authorUrl}>{props.post.author}</Link></td>
             <td>
                 <div className='box'>
                     <div className="content">
@@ -19,6 +20,11 @@ const PostRow = (props) => {
         </tr>
     );
 };
+
+// parse author name
+function parseAuthor (name) {
+    return name.split(' ').join('%20');
+}
 
 PostRow.propTypes = {
     post: PropTypes.object.isRequired
