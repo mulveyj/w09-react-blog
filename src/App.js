@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 import Home from './HomePage';
 import Post from './Post';
+import Author from './Author';
+import NoMatch from './NoMatch';
 import '../node_modules/bulma/css/bulma.css';
 import './App.css';
 
@@ -17,8 +20,12 @@ class App extends Component {
         <Router>
           <div>
             <Link to="/">Home</Link>
-              <Route exact path="/" component={Home}/>
-              <Route path="/posts/:id" component={Post}/>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/posts/:id" component={Post}/>
+                <Route path="/authors/:author" component={Author}/>
+                <Route component={NoMatch}/>
+              </Switch>
           </div>
         </Router>
       </div>
