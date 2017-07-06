@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Home from './Home';
+import Home from './HomePage';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
         <Router>
           <div>
             <Link to="/">Home</Link>
-            <Route exact path="/" component={Home}/>
+              <Route exact path="/" component={Home}/>
           </div>
         </Router>
       </div>
