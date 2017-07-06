@@ -28,19 +28,19 @@ class Post extends React.Component {
                         {this.state.post.title}
                     </p>
                 </header>
-                <div className="media">
-                    <div className="media-left">
-                        <figure className="image is-48x48">
-                        <img src={this.state.post.avatarUrl} alt={this.state.post.avatarUrl}/>
-                        </figure>
-                    </div>
-                    <div className="media-content">
-                        <p className="title is-4">{this.state.post.author}</p>
-                        <p>{this.state.post.createdAt}</p>
-                        <p>{this.state.post.id}</p>
-                    </div>
-                </div>
                 <div className="card-content">
+                    <div className="media">
+                        <div className="media-left">
+                            <figure className="image is-48x48">
+                            <img src={this.state.post.avatarUrl} alt={this.state.post.avatarUrl}/>
+                            </figure>
+                        </div>
+                        <div className="media-content">
+                            <p className="title is-4">{this.state.post.author}</p>
+                            <p>{this.state.post.createdAt}</p>
+                            <p>{this.state.post.id}</p>
+                        </div>
+                    </div>
                     <div className="content">
                         <p>{this.state.post.body}</p>
                     </div>
