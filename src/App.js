@@ -7,12 +7,13 @@ import {
 import Home from './HomePage';
 import './App.css';
 import Post from './Post';
+import '../node_modules/bulma/css/bulma.css';
 
 class App extends Component {
   render () {
     return (
       <div className="App">
-        <h1>Hello Northcoders!</h1>
+        <h1 className='title'>Hello Northcoders!</h1>
         <Router>
           <div>
             <Link to="/">Home</Link>

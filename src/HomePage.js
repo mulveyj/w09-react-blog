@@ -25,7 +25,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <h2>Latest Posts</h2>
+                <h2 className='subtitle'>Latest Posts</h2>
                     <PostList posts={this.state.posts} />
             </div>
             

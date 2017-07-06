@@ -36,8 +36,8 @@ class Post extends React.Component {
                     </div>
                     <div className="media-content">
                         <p className="title is-4">{this.state.post.author}</p>
-                        <p className="title is-6">{this.state.post.createdAt}</p>
-                        <p className="title is-6">{this.state.post.id}</p>
+                        <p>{this.state.post.createdAt}</p>
+                        <p>{this.state.post.id}</p>
                     </div>
                 </div>
                 <div className="card-content">
