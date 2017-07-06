@@ -32,12 +32,24 @@ class Home extends React.Component {
         return (
             <div>
                 <h2>Latest Posts</h2>
-                {this.state.posts.length !== 0
-                    ? this.state.posts.map((post) => {
-                        return (<Post   key={post.id} 
-                                        post={post}/>);
-                    })
-                    : null}
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Created</th>
+                            <th>Author</th>
+                            <th>Title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.posts.length !== 0
+                            ? this.state.posts.map((post) => {
+                                return (<Post   key={post.id} 
+                                                post={post}/>);
+                            })
+                            : null}
+                    </tbody>
+                </table>
             </div>
             
         );
