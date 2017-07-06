@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Home from './Home';
 import './App.css';
 
 class App extends Component {
@@ -21,11 +22,5 @@ class App extends Component {
     );
   }
 }
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
 
 export default App;
