@@ -21,7 +21,7 @@ class Home extends React.Component {
             .then((res) => {
                 console.dir(res.data);
                 this.setState({
-                    posts: res.data.posts[0]
+                    posts: res.data.posts
                 });
             })
             .catch((err) => {
@@ -33,8 +33,10 @@ class Home extends React.Component {
             <div>
                 <h2>Latest Posts</h2>
                 {this.state.posts.length !== 0
-                    ? <Post   key={this.state.posts.id} 
-                        post={this.state.posts}/>
+                    ? this.state.posts.map((post) => {
+                        return (<Post   key={post.id} 
+                                        post={post}/>);
+                    })
                     : null}
             </div>
             
