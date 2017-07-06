@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class PostList extends React.Component {
     render () {
         return (
-            <table className='table'>
+            <table className='component-postlist-table'>
                     <thead>
                         <tr>
                             <th>ID</th>

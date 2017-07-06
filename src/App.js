@@ -5,9 +5,9 @@ import {
   Link
 } from 'react-router-dom';
 import Home from './HomePage';
-import './App.css';
 import Post from './Post';
 import '../node_modules/bulma/css/bulma.css';
+import './App.css';
 
 class App extends Component {
   render () {
