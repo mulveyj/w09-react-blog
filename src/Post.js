@@ -1,29 +1,53 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
+import {API_URL} from './globalVars';
 
-const Post = (props) => {
-    return (
-        <div className="card">
-            <header className="card-header">
-                <p className="card-header-title">
-                    {'Post by ' + props.post.author}
-                </p>
-            </header>
-            <div className="card-content">
-                <div className="content">
-                    <p>{props.post.title}</p>
+class Post extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            post:{}
+        };
+    }
+    componentDidMount () {
+        axios.get(`${API_URL}${this.props.match.url}`)
+            .then((res) => {
+                this.setState({
+                    post: res.data.post
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+    render () {
+        return (
+            <div className="card">
+                <header className="card-header">
+                    <p className="card-header-title">
+                        {this.state.post.title}
+                    </p>
+                </header>
+                <div className="media">
+                    <div className="media-left">
+                        <figure className="image is-48x48">
+                        <img src={this.state.post.avatarUrl} alt={this.state.post.avatarUrl}/>
+                        </figure>
+                    </div>
+                    <div className="media-content">
+                        <p className="title is-4">{this.state.post.author}</p>
+                        <p className="title is-6">{this.state.post.createdAt}</p>
+                        <p className="title is-6">{this.state.post.id}</p>
+                    </div>
+                </div>
+                <div className="card-content">
+                    <div className="content">
+                        <p>{this.state.post.body}</p>
+                    </div>
                 </div>
             </div>
-            <footer className="card-footer">
-                <span className="card-footer-item">{'ID: ' + props.post.id}</span>
-                <span className="card-footer-item">{'Created At: ' + props.post.createdAt}</span>
-            </footer>
-        </div>
-    );
-};
-
-Post.propTypes = {
-    post: PropTypes.object.isRequired
-};
+        );
+    }
+}
 
 export default Post;

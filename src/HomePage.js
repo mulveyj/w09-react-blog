@@ -1,12 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-//import {
-//  BrowserRouter as Router,
-//  Route,
-//  Link
-//} from 'react-router-dom';
 import PostList from './PostList';
-const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh/';
+import {API_URL} from './globalVars';
 
 
 class Home extends React.Component {
@@ -17,9 +12,8 @@ class Home extends React.Component {
         };
     }
     componentDidMount () {
-        axios.get(`${API_URL}posts`)
+        axios.get(`${API_URL}/posts`)
             .then((res) => {
-                console.dir(res.data);
                 this.setState({
                     posts: res.data.posts
                 });

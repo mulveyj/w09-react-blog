@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Home from './HomePage';
 import './App.css';
+import Post from './Post';
 
 class App extends Component {
   render () {
@@ -16,6 +17,7 @@ class App extends Component {
           <div>
             <Link to="/">Home</Link>
               <Route exact path="/" component={Home}/>
+              <Route path="/posts/:id" component={Post}/>
           </div>
         </Router>
       </div>
