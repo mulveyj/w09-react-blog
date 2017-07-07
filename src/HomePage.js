@@ -8,14 +8,16 @@ class Home extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            posts:[]
+            data:{},
+            page: 0
         };
     }
     componentDidMount () {
         axios.get(`${API_URL}/posts`)
             .then((res) => {
+                console.dir(res.data);
                 this.setState({
-                    posts: res.data.posts
+                    data: res.data
                 });
             })
             .catch((err) => {
@@ -26,7 +28,7 @@ class Home extends React.Component {
         return (
             <div>
                 <h2 className='subtitle'>Latest Posts</h2>
-                    <PostList posts={this.state.posts} />
+                    <PostList data={this.state.data} />
             </div>
             
         );

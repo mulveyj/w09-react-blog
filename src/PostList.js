@@ -1,11 +1,14 @@
 import React from 'react';
 import PostRow from './PostRow';
+import Pagination from './Pagination';
 import PropTypes from 'prop-types';
 
 class PostList extends React.Component {
     render () {
         return (
-            <table className='component-postlist-table'>
+            <div>
+                <Pagination/>
+                <table className='component-postlist-table'>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -15,20 +18,21 @@ class PostList extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.length !== 0
-                            ? this.props.posts.map((post) => {
+                        {this.props.data.posts !== undefined
+                            ? this.props.data.posts.map((post) => {
                                 return (<PostRow   key={post.id} 
                                                 post={post}/>);
                             })
                             : null}
                     </tbody>
-            </table>
+                </table>
+            </div>
         );
     }
 }
 
 PostList.propTypes = {
-    posts: PropTypes.array.isRequired
+    data: PropTypes.object.isRequired
 };
 
 export default PostList;
