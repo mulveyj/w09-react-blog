@@ -31,7 +31,7 @@ const PageButton = (props) => {
     return (
         <li>
             <Link className="pagination-link" 
-                  to={'/posts?page='+ (props.currentPage + 2).toString()}>
+                  to={'/posts?page='+ (props.currentPage + 1).toString()}>
                   {props.currentPage + 2}
                   </Link>
         </li>

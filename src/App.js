@@ -22,6 +22,7 @@ class App extends Component {
             <Link to="/">Home</Link>
               <Switch>
                 <Route exact path="/" component={Home}/>
+                <Route path="/posts" component={Home}/>
                 <Route path="/posts/:id" component={Post}/>
                 <Route path="/authors/:author" component={Author}/>
                 <Route component={NoMatch}/>

@@ -14,10 +14,11 @@ class Home extends React.Component {
     }
     componentDidMount () {
         const url = this.props.match.url === '/'
-                    ? '/posts'
-                    : this.props.match.url;
+                    ? '/posts?page=0'
+                    : this.props.match.url + this.props.location.search;
         axios.get(`${API_URL}${url}`)
             .then((res) => {
+                console.log(this.props.location.search);
                 console.dir(res.data);
                 this.setState({
                     data: res.data
@@ -30,7 +31,8 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <h2 className='subtitle'>Latest Posts</h2>
+                <h2 className='subtitle'>{'Latest Posts, Page ' 
+                                + (this.state.data.page + 1)}</h2>
                     <PostList data={this.state.data} />
             </div>
             
