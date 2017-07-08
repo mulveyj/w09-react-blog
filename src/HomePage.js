@@ -13,7 +13,10 @@ class Home extends React.Component {
         };
     }
     componentDidMount () {
-        axios.get(`${API_URL}/posts`)
+        const url = this.props.match.url === '/'
+                    ? '/posts'
+                    : this.props.match.url;
+        axios.get(`${API_URL}${url}`)
             .then((res) => {
                 console.dir(res.data);
                 this.setState({

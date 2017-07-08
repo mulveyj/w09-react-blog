@@ -7,7 +7,7 @@ class PostList extends React.Component {
     render () {
         return (
             <div>
-                <Pagination/>
+                <Pagination currentPage={this.props.data.page}/>
                 <table className='component-postlist-table'>
                     <thead>
                         <tr>
